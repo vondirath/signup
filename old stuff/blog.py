@@ -55,6 +55,13 @@ class Signup(BaseHandler):
     def get(self):
         self.render("signup-form.html")
         
+    def post(self):
+        have_error = False
+        username = self.request.get('username')
+        password = self.request.get('password')
+        verify = self.request.get('verify')
+        email = self.request.get('email')
+
         params = dict(username = username,
                       email = email)
       
@@ -86,7 +93,4 @@ class Welcome(BaseHandler):
         else:
             self.redirect('/')
         
-app = webapp2.WSGIApplication(  
-    ('/', Signup),
-    ('/welcome', Welcome)],
-    debug=True)
+app = webapp2.WSGIApplication([('/', Signup), ('/welcome', Welcome)], debug=True)
