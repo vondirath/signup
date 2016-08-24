@@ -10,7 +10,7 @@ handlers:
   upload: favicon\.ico
 
 - url: /.*
-  script: rot13.app
+  script: blog.app
 
 libraries:
 - name: webapp2
